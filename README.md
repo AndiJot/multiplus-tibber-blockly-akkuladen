@@ -1,2 +1,3 @@
 # multiplus-tibber-blockly-akkuladen
 Multiplus ist an einem Victron GX Gerät oder Cerbo angeschlossen. In Verbindung mit einem dynamischen Stromtarif von Tibber sollen jetzt teure Stunden mit dem Akku überbrückt werden und in günstigen soll geladen werden.
+Gleich vorweg: Das ist nicht mein Code. Ich habe den Code hier gefunden: https://www.tns-labs.org/multiplus-ii-tibber-dynamischer-stromtarif/ aber leider lässt sich der Code nicht in Blockly importieren. Den Autor konnte ich auch nicht erreichen und hoffe hier auf Github um Hilfe. Telegram-> https://t.me/rundumtibber oder Email anju74@gmx.de
