@@ -1,0 +1,587 @@
+<xml xmlns="https://developers.google.com/blockly/xml">
+  <variables>
+    <variable id="THiM4y#NlzZ-ZAX9?uX5">preisDelta</variable>
+    <variable id="*0|tT|UDQ(nmLv{tGwVm">maximalerPreis</variable>
+    <variable id="JI9?]{XJ1JS-+tO6n4iu">minimalerPreis</variable>
+    <variable id="tYvq5-S3n.[Igz#{=nJ/">i</variable>
+  </variables>
+  <block type="schedule" id="Q$=Ccopsd-uFI0g`2/Tj" x="-62" y="37">
+    <field name="SCHEDULE">*/60 * * * *</field>
+    <statement name="STATEMENT">
+      <block type="comment" id="YDc*pElpmgz!IH!hjYf*">
+        <field name="COMMENT">Maximalen und Minimalen Preis ermitteln</field>
+        <next>
+          <block type="variables_set" id="B:K}F;q_vqBrLl.Bgx2M">
+            <field name="VAR" id="THiM4y#NlzZ-ZAX9?uX5">preisDelta</field>
+            <value name="VALUE">
+              <block type="math_number" id="#WDrVc5kX)B_RAVM7WtZ">
+                <field name="NUM">0</field>
+              </block>
+            </value>
+            <next>
+              <block type="variables_set" id="Q80|S3S~:f+-:fUm39#l">
+                <field name="VAR" id="*0|tT|UDQ(nmLv{tGwVm">maximalerPreis</field>
+                <value name="VALUE">
+                  <block type="math_number" id="){:4(-`C2+H}4}SeNa91">
+                    <field name="NUM">-5</field>
+                  </block>
+                </value>
+                <next>
+                  <block type="variables_set" id="wi~Bc]cUx8ay1tYr?Ft3">
+                    <field name="VAR" id="JI9?]{XJ1JS-+tO6n4iu">minimalerPreis</field>
+                    <value name="VALUE">
+                      <block type="math_number" id="{vEf|/WjHMIHkM;/_Rzf">
+                        <field name="NUM">5</field>
+                      </block>
+                    </value>
+                    <next>
+                      <block type="controls_forEach" id="ZeNLSBug06L.gXBO]k)z">
+                        <field name="VAR" id="tYvq5-S3n.[Igz#{=nJ/">i</field>
+                        <value name="LIST">
+                          <block type="selector" id="T0Z*K!1}xcui=#C(tPHd">
+                            <field name="TEXT">channel[state.id=tibberconnect.0.Homes.<YOUR_TIBBER_HOME_ID>.PricesToday.*.total]</field>
+                          </block>
+                        </value>
+                        <statement name="DO">
+                          <block type="controls_if" id="3!9Eo.Nb|6,Z3Q)_7,tL">
+                            <value name="IF0">
+                              <block type="logic_compare" id="7AnCO5T~:a20*K_T:wvL">
+                                <field name="OP">LT</field>
+                                <value name="A">
+                                  <block type="variables_get" id="2u#A4!97CEF5PmkGbpAK">
+                                    <field name="VAR" id="*0|tT|UDQ(nmLv{tGwVm">maximalerPreis</field>
+                                  </block>
+                                </value>
+                                <value name="B">
+                                  <block type="get_value_var" id="W[8f8:r.olh2?ciy=U8K">
+                                    <field name="ATTR">val</field>
+                                    <value name="OID">
+                                      <shadow type="text">
+                                        <field name="TEXT"></field>
+                                      </shadow>
+                                      <block type="variables_get" id="[K_G~*8q7BbJ)D*ArJvm">
+                                        <field name="VAR" id="tYvq5-S3n.[Igz#{=nJ/">i</field>
+                                      </block>
+                                    </value>
+                                  </block>
+                                </value>
+                              </block>
+                            </value>
+                            <statement name="DO0">
+                              <block type="variables_set" id="gVe_mFQ.b*2RLcbd.)v/">
+                                <field name="VAR" id="*0|tT|UDQ(nmLv{tGwVm">maximalerPreis</field>
+                                <value name="VALUE">
+                                  <block type="get_value_var" id="6){0o8|(G`m@GCAdawH$">
+                                    <field name="ATTR">val</field>
+                                    <value name="OID">
+                                      <shadow type="text">
+                                        <field name="TEXT"></field>
+                                      </shadow>
+                                      <block type="variables_get" id="@w`!k@Jl^ar;nmu,QSiU">
+                                        <field name="VAR" id="tYvq5-S3n.[Igz#{=nJ/">i</field>
+                                      </block>
+                                    </value>
+                                  </block>
+                                </value>
+                              </block>
+                            </statement>
+                            <next>
+                              <block type="controls_if" id="lJQ-1$3:[qu~#J_SmN!n">
+                                <value name="IF0">
+                                  <block type="logic_compare" id="1mJ(kzh`j^@8SKc0JJ/A">
+                                    <field name="OP">GT</field>
+                                    <value name="A">
+                                      <block type="variables_get" id=":v6KfNRBs1mq`UF@0K@=">
+                                        <field name="VAR" id="JI9?]{XJ1JS-+tO6n4iu">minimalerPreis</field>
+                                      </block>
+                                    </value>
+                                    <value name="B">
+                                      <block type="get_value_var" id="Kmo1b)1T[1X=ETO-!i|$">
+                                        <field name="ATTR">val</field>
+                                        <value name="OID">
+                                          <shadow type="text">
+                                            <field name="TEXT"></field>
+                                          </shadow>
+                                          <block type="variables_get" id="!c-!1V/0MHGKnQ,fp*7D">
+                                            <field name="VAR" id="tYvq5-S3n.[Igz#{=nJ/">i</field>
+                                          </block>
+                                        </value>
+                                      </block>
+                                    </value>
+                                  </block>
+                                </value>
+                                <statement name="DO0">
+                                  <block type="variables_set" id="821h;.v7(yvkJ$r1dU)]">
+                                    <field name="VAR" id="JI9?]{XJ1JS-+tO6n4iu">minimalerPreis</field>
+                                    <value name="VALUE">
+                                      <block type="get_value_var" id="zjti$NQ6jyh}Q*yj9h$4">
+                                        <field name="ATTR">val</field>
+                                        <value name="OID">
+                                          <shadow type="text">
+                                            <field name="TEXT"></field>
+                                          </shadow>
+                                          <block type="variables_get" id="oCteKn*TXZ6JX:($J@n)">
+                                            <field name="VAR" id="tYvq5-S3n.[Igz#{=nJ/">i</field>
+                                          </block>
+                                        </value>
+                                      </block>
+                                    </value>
+                                  </block>
+                                </statement>
+                              </block>
+                            </next>
+                          </block>
+                        </statement>
+                        <next>
+                          <block type="controls_forEach" id="Ry{Sc;21]^0EX*MAvjF*">
+                            <field name="VAR" id="tYvq5-S3n.[Igz#{=nJ/">i</field>
+                            <value name="LIST">
+                              <block type="selector" id="X)wXg`qLk~xBD_Yezorq">
+                                <field name="TEXT">channel[state.id=tibberconnect.0.Homes.<YOUR_TIBBER_HOME_ID>.PricesTomorrow.*.total]</field>
+                              </block>
+                            </value>
+                            <statement name="DO">
+                              <block type="controls_if" id="Z#pidO$8iTHECJBmODY[">
+                                <value name="IF0">
+                                  <block type="logic_compare" id="Qu:VI?N:3W)6]0K-Cxr-">
+                                    <field name="OP">LT</field>
+                                    <value name="A">
+                                      <block type="variables_get" id="cbJy=ph8.Bv)1M3yosuN">
+                                        <field name="VAR" id="*0|tT|UDQ(nmLv{tGwVm">maximalerPreis</field>
+                                      </block>
+                                    </value>
+                                    <value name="B">
+                                      <block type="get_value_var" id="n$C,w#DPTzBYwp**p2w.">
+                                        <field name="ATTR">val</field>
+                                        <value name="OID">
+                                          <shadow type="text">
+                                            <field name="TEXT"></field>
+                                          </shadow>
+                                          <block type="variables_get" id=")WWZ6)NPkUj|*Ka|6/T*">
+                                            <field name="VAR" id="tYvq5-S3n.[Igz#{=nJ/">i</field>
+                                          </block>
+                                        </value>
+                                      </block>
+                                    </value>
+                                  </block>
+                                </value>
+                                <statement name="DO0">
+                                  <block type="variables_set" id="}AP-8kvtEVyo7)]_{Q%!">
+                                    <field name="VAR" id="*0|tT|UDQ(nmLv{tGwVm">maximalerPreis</field>
+                                    <value name="VALUE">
+                                      <block type="get_value_var" id="z3df}yqg|u3OdR{lZ(_1">
+                                        <field name="ATTR">val</field>
+                                        <value name="OID">
+                                          <shadow type="text">
+                                            <field name="TEXT"></field>
+                                          </shadow>
+                                          <block type="variables_get" id="c{FBum;F~QmM}gBqvQ;:">
+                                            <field name="VAR" id="tYvq5-S3n.[Igz#{=nJ/">i</field>
+                                          </block>
+                                        </value>
+                                      </block>
+                                    </value>
+                                  </block>
+                                </statement>
+                                <next>
+                                  <block type="controls_if" id="@Ft4fd1{L1;BP2lE)T4J">
+                                    <value name="IF0">
+                                      <block type="logic_compare" id="2,mbJna[!ea{zB%A#q`2">
+                                        <field name="OP">GT</field>
+                                        <value name="A">
+                                          <block type="variables_get" id="3$)Wb=Bjx]A%G(j6+?CJ">
+                                            <field name="VAR" id="JI9?]{XJ1JS-+tO6n4iu">minimalerPreis</field>
+                                          </block>
+                                        </value>
+                                        <value name="B">
+                                          <block type="get_value_var" id="J1lQOWH*}NNyn2zzb0:r">
+                                            <field name="ATTR">val</field>
+                                            <value name="OID">
+                                              <shadow type="text">
+                                                <field name="TEXT"></field>
+                                              </shadow>
+                                              <block type="variables_get" id="5p*9$QLX:!!8dV,(tiOt">
+                                                <field name="VAR" id="tYvq5-S3n.[Igz#{=nJ/">i</field>
+                                              </block>
+                                            </value>
+                                          </block>
+                                        </value>
+                                      </block>
+                                    </value>
+                                    <statement name="DO0">
+                                      <block type="variables_set" id="@+UC_DtT#WzgzDqY;rWe">
+                                        <field name="VAR" id="JI9?]{XJ1JS-+tO6n4iu">minimalerPreis</field>
+                                        <value name="VALUE">
+                                          <block type="get_value_var" id="tEt4mDS|]^oA.9M3A,)l">
+                                            <field name="ATTR">val</field>
+                                            <value name="OID">
+                                              <shadow type="text">
+                                                <field name="TEXT"></field>
+                                              </shadow>
+                                              <block type="variables_get" id="6S+cZHK;C%Q||D0O_:2t">
+                                                <field name="VAR" id="tYvq5-S3n.[Igz#{=nJ/">i</field>
+                                              </block>
+                                            </value>
+                                          </block>
+                                        </value>
+                                      </block>
+                                    </statement>
+                                  </block>
+                                </next>
+                              </block>
+                            </statement>
+                            <next>
+                              <block type="comment" id="PRV_T.t:f$4]LrzVSyL.">
+                                <field name="COMMENT">Preisunterschied ermitteln</field>
+                                <next>
+                                  <block type="variables_set" id="92P-#dfwg0D9vCD2%uAj">
+                                    <field name="VAR" id="THiM4y#NlzZ-ZAX9?uX5">preisDelta</field>
+                                    <value name="VALUE">
+                                      <block type="math_arithmetic" id="bC3@h^r-9s+X+]T.(D:]">
+                                        <field name="OP">MINUS</field>
+                                        <value name="A">
+                                          <shadow type="math_number" id="(]v_.Ts.1glWWn_PKofd">
+                                            <field name="NUM">1</field>
+                                          </shadow>
+                                          <block type="variables_get" id="~uyQY=!,cEl@r#2#_LBP">
+                                            <field name="VAR" id="*0|tT|UDQ(nmLv{tGwVm">maximalerPreis</field>
+                                          </block>
+                                        </value>
+                                        <value name="B">
+                                          <shadow type="math_number" id="dqYRu)n+/sjtApX$8Yiw">
+                                            <field name="NUM">1</field>
+                                          </shadow>
+                                          <block type="variables_get" id="Lk)rK7m)Hy0VV-haPHAn">
+                                            <field name="VAR" id="JI9?]{XJ1JS-+tO6n4iu">minimalerPreis</field>
+                                          </block>
+                                        </value>
+                                      </block>
+                                    </value>
+                                    <next>
+                                      <block type="comment" id="_t@k_=o?E^hJlO5$79K@">
+                                        <field name="COMMENT">Falls der Preisunterschied die Akkunutzung rechtfertigt, wird der Akku genutzt</field>
+                                        <next>
+                                          <block type="controls_if" id="0MLldLQDZwV@eRb#0(LS">
+                                            <mutation else="1"></mutation>
+                                            <value name="IF0">
+                                              <block type="logic_compare" id=".=/G1=S,tn*95dCD=a/T">
+                                                <field name="OP">GT</field>
+                                                <value name="A">
+                                                  <block type="variables_get" id="|t{d%|xC/7,.Ym:VBF4h">
+                                                    <field name="VAR" id="THiM4y#NlzZ-ZAX9?uX5">preisDelta</field>
+                                                  </block>
+                                                </value>
+                                                <value name="B">
+                                                  <block type="math_number" id="/iRZP617nIw._enOfgSL">
+                                                    <field name="NUM">0.12</field>
+                                                  </block>
+                                                </value>
+                                              </block>
+                                            </value>
+                                            <statement name="DO0">
+                                              <block type="debug" id="X._8ZET8_3}_9v29kAe]">
+                                                <field name="Severity">log</field>
+                                                <value name="TEXT">
+                                                  <shadow type="text" id="S.Z#.)-8B(S9?w#Q)_U=">
+                                                    <field name="TEXT">Preisdelta rechtfertigt Akkunutzung</field>
+                                                  </shadow>
+                                                  <block type="text_join" id="{utoh0lTh2Ws1A)h|[l2">
+                                                    <mutation items="6"></mutation>
+                                                    <value name="ADD0">
+                                                      <block type="text" id=".W]?ZV2=]u5h{4TCMR`@">
+                                                        <field name="TEXT">Preisdelta rechtfertigt Akkunutzung. Preisdelta beträgt: </field>
+                                                      </block>
+                                                    </value>
+                                                    <value name="ADD1">
+                                                      <block type="variables_get" id=";#TZiJ46oa:9{kHy8:{d">
+                                                        <field name="VAR" id="THiM4y#NlzZ-ZAX9?uX5">preisDelta</field>
+                                                      </block>
+                                                    </value>
+                                                    <value name="ADD2">
+                                                      <block type="text" id="rBE/bZM$P[/)Y%MJU}mj">
+                                                        <field name="TEXT">der minimale Preis liegt bei: </field>
+                                                      </block>
+                                                    </value>
+                                                    <value name="ADD3">
+                                                      <block type="variables_get" id="!DUj?B^Drd)RS8=R7V5G">
+                                                        <field name="VAR" id="JI9?]{XJ1JS-+tO6n4iu">minimalerPreis</field>
+                                                      </block>
+                                                    </value>
+                                                    <value name="ADD4">
+                                                      <block type="text" id="$!@9xez4F3u}]Wcc34;2">
+                                                        <field name="TEXT">der maximale Preis liegt bei: </field>
+                                                      </block>
+                                                    </value>
+                                                    <value name="ADD5">
+                                                      <block type="variables_get" id="MU$.hrQ3=@c;qEM14AWV">
+                                                        <field name="VAR" id="*0|tT|UDQ(nmLv{tGwVm">maximalerPreis</field>
+                                                      </block>
+                                                    </value>
+                                                  </block>
+                                                </value>
+                                                <next>
+                                                  <block type="controls_if" id="~3,cyF(uO=an#u@HbxRL">
+                                                    <value name="IF0">
+                                                      <block type="logic_compare" id="N%4J3H@cg/^$]b++rxF(">
+                                                        <field name="OP">EQ</field>
+                                                        <value name="A">
+                                                          <block type="get_value" id=",*$eG53]Nk,@N%M+|0:$">
+                                                            <field name="ATTR">val</field>
+                                                            <field name="OID">tibberconnect.0.Homes.<YOUR_TIBBER_HOME_ID>.CurrentPrice.level</field>
+                                                          </block>
+                                                        </value>
+                                                        <value name="B">
+                                                          <block type="text" id="=ask@;i[aq5qK_`:bYNJ">
+                                                            <field name="TEXT">VERY CHEAP</field>
+                                                          </block>
+                                                        </value>
+                                                      </block>
+                                                    </value>
+                                                    <statement name="DO0">
+                                                      <block type="control" id="7vP`OlwQuQ_}Di/9b,c.">
+                                                        <mutation xmlns="http://www.w3.org/1999/xhtml" delay_input="false"></mutation>
+                                                        <field name="OID">mqtt-client.1.W.<YOUR_VICTRON_ID>.settings.0.Settings.CGwacs.BatteryLife.MinimumSocLimit</field>
+                                                        <field name="WITH_DELAY">FALSE</field>
+                                                        <value name="VALUE">
+                                                          <block type="text" id="S9z_Wu+y$._]?BvlPlKB">
+                                                            <field name="TEXT">{"value": 65.0}</field>
+                                                          </block>
+                                                        </value>
+                                                        <next>
+                                                          <block type="debug" id="~Nee+$z9XFTsB%cri~J.">
+                                                            <field name="Severity">log</field>
+                                                            <value name="TEXT">
+                                                              <shadow type="text" id="={G7fvR_{8{PBD~4i2Bf">
+                                                                <field name="TEXT">Akku wird sehr günstig aufgeladen</field>
+                                                              </shadow>
+                                                            </value>
+                                                          </block>
+                                                        </next>
+                                                      </block>
+                                                    </statement>
+                                                    <next>
+                                                      <block type="controls_if" id="^L}BSR?02lI,BEU{Ius-">
+                                                        <value name="IF0">
+                                                          <block type="logic_compare" id="*x}#q?Kx%xVfFR4cZ@rU">
+                                                            <field name="OP">EQ</field>
+                                                            <value name="A">
+                                                              <block type="get_value" id="ynY}m^Ta1Op_L$P`,r5^">
+                                                                <field name="ATTR">val</field>
+                                                                <field name="OID">tibberconnect.0.Homes.<YOUR_TIBBER_HOME_ID>.CurrentPrice.level</field>
+                                                              </block>
+                                                            </value>
+                                                            <value name="B">
+                                                              <block type="text" id="AUg0E=C]|$o@tTA@bIYO">
+                                                                <field name="TEXT">CHEAP</field>
+                                                              </block>
+                                                            </value>
+                                                          </block>
+                                                        </value>
+                                                        <statement name="DO0">
+                                                          <block type="control" id="VAo[NXdcPLoduMe?{c6`">
+                                                            <mutation xmlns="http://www.w3.org/1999/xhtml" delay_input="false"></mutation>
+                                                            <field name="OID">mqtt-client.1.W.<YOUR_VICTRON_ID>.settings.0.Settings.CGwacs.BatteryLife.MinimumSocLimit</field>
+                                                            <field name="WITH_DELAY">FALSE</field>
+                                                            <value name="VALUE">
+                                                              <block type="text" id="i2Rksc_AB@lqJIdm/A-m">
+                                                                <field name="TEXT">{"value": 65.0}</field>
+                                                              </block>
+                                                            </value>
+                                                            <next>
+                                                              <block type="debug" id="D+|@l$U^w@zium1gplum">
+                                                                <field name="Severity">log</field>
+                                                                <value name="TEXT">
+                                                                  <shadow type="text" id="~eo=^$tA!b63m7$QQBQK">
+                                                                    <field name="TEXT">Akku wird günstig aufgeladen</field>
+                                                                  </shadow>
+                                                                </value>
+                                                              </block>
+                                                            </next>
+                                                          </block>
+                                                        </statement>
+                                                        <next>
+                                                          <block type="controls_if" id=",cSQh64l1)uV@@QJm@ey">
+                                                            <value name="IF0">
+                                                              <block type="logic_compare" id="LN98aVjFFeNI5|}XC%R(">
+                                                                <field name="OP">EQ</field>
+                                                                <value name="A">
+                                                                  <block type="get_value" id="mUF-LsDe1pdy{YoSNf]?">
+                                                                    <field name="ATTR">val</field>
+                                                                    <field name="OID">tibberconnect.0.Homes.<YOUR_TIBBER_HOME_ID>.CurrentPrice.level</field>
+                                                                  </block>
+                                                                </value>
+                                                                <value name="B">
+                                                                  <block type="text" id="4-oZuLL,=MSm`dV-f!$;">
+                                                                    <field name="TEXT">NORMAL</field>
+                                                                  </block>
+                                                                </value>
+                                                              </block>
+                                                            </value>
+                                                            <statement name="DO0">
+                                                              <block type="control" id="OjnsK#jVI#fQu_H|!%5f">
+                                                                <mutation xmlns="http://www.w3.org/1999/xhtml" delay_input="false"></mutation>
+                                                                <field name="OID">mqtt-client.1.W.<YOUR_VICTRON_ID>.settings.0.Settings.CGwacs.BatteryLife.MinimumSocLimit</field>
+                                                                <field name="WITH_DELAY">FALSE</field>
+                                                                <value name="VALUE">
+                                                                  <block type="text" id="||CyM[HAzs-}PUBPK{Dd">
+                                                                    <field name="TEXT">{"value": 65.0}</field>
+                                                                  </block>
+                                                                </value>
+                                                                <next>
+                                                                  <block type="debug" id="o`weIIS#*88mfntsme#]">
+                                                                    <field name="Severity">log</field>
+                                                                    <value name="TEXT">
+                                                                      <shadow type="text" id="WQaD5|#OcxNWaWmaW,aT">
+                                                                        <field name="TEXT">Akku wird aufgeladen</field>
+                                                                      </shadow>
+                                                                    </value>
+                                                                  </block>
+                                                                </next>
+                                                              </block>
+                                                            </statement>
+                                                            <next>
+                                                              <block type="controls_if" id="}5[@`*|W3UmYRbqLyGs7">
+                                                                <value name="IF0">
+                                                                  <block type="logic_compare" id="/|Fj$xR#@M|3E`xW,}6+">
+                                                                    <field name="OP">EQ</field>
+                                                                    <value name="A">
+                                                                      <block type="get_value" id="*SJ4L:Jr$Mo%_X3i-#5l">
+                                                                        <field name="ATTR">val</field>
+                                                                        <field name="OID">tibberconnect.0.Homes.<YOUR_TIBBER_HOME_ID>.CurrentPrice.level</field>
+                                                                      </block>
+                                                                    </value>
+                                                                    <value name="B">
+                                                                      <block type="text" id="l%4E[2[OqXf+a$FCD{$/">
+                                                                        <field name="TEXT">EXPENSIVE</field>
+                                                                      </block>
+                                                                    </value>
+                                                                  </block>
+                                                                </value>
+                                                                <statement name="DO0">
+                                                                  <block type="control" id="qlAvW-3/O!S0fbfS$+D!">
+                                                                    <mutation xmlns="http://www.w3.org/1999/xhtml" delay_input="false"></mutation>
+                                                                    <field name="OID">mqtt-client.1.W.<YOUR_VICTRON_ID>.settings.0.Settings.CGwacs.BatteryLife.MinimumSocLimit</field>
+                                                                    <field name="WITH_DELAY">FALSE</field>
+                                                                    <value name="VALUE">
+                                                                      <block type="text" id="6R|:F@w]I,iKAV!ulIIH">
+                                                                        <field name="TEXT">{"value": 30.0}</field>
+                                                                      </block>
+                                                                    </value>
+                                                                    <next>
+                                                                      <block type="debug" id="~:ch(hz/%E]mL/(i{cQ-">
+                                                                        <field name="Severity">log</field>
+                                                                        <value name="TEXT">
+                                                                          <shadow type="text" id=".wxx{iT[e^b`H5T|G,[|">
+                                                                            <field name="TEXT">Akku kompensiert teure Zeit</field>
+                                                                          </shadow>
+                                                                        </value>
+                                                                      </block>
+                                                                    </next>
+                                                                  </block>
+                                                                </statement>
+                                                                <next>
+                                                                  <block type="controls_if" id="|i]{S|1ODd3E1X?LH7IA">
+                                                                    <value name="IF0">
+                                                                      <block type="logic_compare" id="L?p~4.aa5+}irLrb;9-L">
+                                                                        <field name="OP">EQ</field>
+                                                                        <value name="A">
+                                                                          <block type="get_value" id="Xdl)y0gL8c2uOK0wV!se">
+                                                                            <field name="ATTR">val</field>
+                                                                            <field name="OID">tibberconnect.0.Homes.<YOUR_TIBBER_HOME_ID>.CurrentPrice.level</field>
+                                                                          </block>
+                                                                        </value>
+                                                                        <value name="B">
+                                                                          <block type="text" id="}g2#WvtgmA{@/[fZx#ry">
+                                                                            <field name="TEXT">VERY EXPENSIVE</field>
+                                                                          </block>
+                                                                        </value>
+                                                                      </block>
+                                                                    </value>
+                                                                    <statement name="DO0">
+                                                                      <block type="control" id=")Vju|u2tJ_7fGcp27@I+">
+                                                                        <mutation xmlns="http://www.w3.org/1999/xhtml" delay_input="false"></mutation>
+                                                                        <field name="OID">mqtt-client.1.W.<YOUR_VICTRON_ID>.settings.0.Settings.CGwacs.BatteryLife.MinimumSocLimit</field>
+                                                                        <field name="WITH_DELAY">FALSE</field>
+                                                                        <value name="VALUE">
+                                                                          <block type="text" id="!Y{V9GMd%|HT(Gq+gMzm">
+                                                                            <field name="TEXT">{"value": 30.0}</field>
+                                                                          </block>
+                                                                        </value>
+                                                                        <next>
+                                                                          <block type="debug" id="YunhZ$fRraS/4.#w`4#`">
+                                                                            <field name="Severity">log</field>
+                                                                            <value name="TEXT">
+                                                                              <shadow type="text" id="XF3[j7p_Ez8NbcN=3GxF">
+                                                                                <field name="TEXT">Akku kompensiert sehr teure Zeit</field>
+                                                                              </shadow>
+                                                                            </value>
+                                                                          </block>
+                                                                        </next>
+                                                                      </block>
+                                                                    </statement>
+                                                                  </block>
+                                                                </next>
+                                                              </block>
+                                                            </next>
+                                                          </block>
+                                                        </next>
+                                                      </block>
+                                                    </next>
+                                                  </block>
+                                                </next>
+                                              </block>
+                                            </statement>
+                                            <statement name="ELSE">
+                                              <block type="comment" id="hA1$1W{4+tYNbd{aEr|k">
+                                                <field name="COMMENT">Akku wird nicht genutzt.</field>
+                                                <next>
+                                                  <block type="debug" id="%~H-3Vn}Ko@?Mj1}=xE)">
+                                                    <field name="Severity">log</field>
+                                                    <value name="TEXT">
+                                                      <shadow type="text" id="oNOQ?)M?;H7*],+$vSxA">
+                                                        <field name="TEXT">test</field>
+                                                      </shadow>
+                                                      <block type="text" id=",G,Xu~q=gT{Q|IF~UD9A">
+                                                        <field name="TEXT">Akku aktuell nicht genutzt. SoC unverändert</field>
+                                                      </block>
+                                                    </value>
+                                                  </block>
+                                                </next>
+                                              </block>
+                                            </statement>
+                                          </block>
+                                        </next>
+                                      </block>
+                                    </next>
+                                  </block>
+                                </next>
+                              </block>
+                            </next>
+                          </block>
+                        </next>
+                      </block>
+                    </next>
+                  </block>
+                </next>
+              </block>
+            </next>
+          </block>
+        </next>
+      </block>
+    </statement>
+  </block>
+  <block type="comment" id="h^7IDx!jkiM6nW!BP]7-" x="338" y="188">
+    <field name="COMMENT">channel[state.id=tibberconnect.0.Homes.&lt;homeID&gt;.PricesToday.*.total]</field>
+  </block>
+  <block type="comment" id="(PKF$X_AyX^T_jj$V[h5" x="413" y="438">
+    <field name="COMMENT">....Homes.&lt;homeID&gt;.PricesToday.*.total]</field>
+  </block>
+  <block type="debug" id="UNPb8.9V|VIxsjjV{VNx" x="117" y="1124">
+    <field name="Severity">log</field>
+    <value name="TEXT">
+      <shadow type="text" id="~fnjne.+A{,w4_}|.pvZ">
+        <field name="TEXT">Akku wird günstig aufgeladen</field>
+      </shadow>
+    </value>
+  </block>
+</xml>
